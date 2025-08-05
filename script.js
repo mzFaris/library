@@ -30,6 +30,11 @@ function displayBooks() {
       card.append(p);
     }
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+
+    card.append(deleteButton);
+
     cardContainer.append(card);
   });
 }
