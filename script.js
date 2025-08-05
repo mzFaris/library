@@ -30,6 +30,12 @@ function displayBooks() {
   });
 }
 
+const dialog = document.querySelector("dialog");
+const addButton = document.querySelector("#add");
+addButton.addEventListener("click", (e) => {
+  dialog.showModal();
+});
+
 addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
 addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
 addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
