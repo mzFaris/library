@@ -18,6 +18,7 @@ const cardContainer = document.querySelector("#card-container");
 function displayBooks() {
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
+    card.classList.add("card");
 
     for (const prop in book) {
       const p = document.createElement("p");
@@ -30,6 +31,13 @@ function displayBooks() {
 }
 
 addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
+addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
+addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
+addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
+addBookToLibrary("Lookism", "Taejun Pak", 300, false);
+addBookToLibrary("Lookism", "Taejun Pak", 300, false);
+addBookToLibrary("Lookism", "Taejun Pak", 300, false);
+addBookToLibrary("Lookism", "Taejun Pak", 300, false);
 addBookToLibrary("Lookism", "Taejun Pak", 300, false);
 
 displayBooks();
