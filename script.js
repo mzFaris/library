@@ -4,7 +4,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+  this.read = read ? "✅" : "❌";
   this.id = crypto.randomUUID();
 }
 
@@ -16,6 +16,10 @@ function addBookToLibrary(title, author, pages, read) {
 const cardContainer = document.querySelector("#card-container");
 
 function displayBooks() {
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.firstChild);
+  }
+
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -36,14 +40,16 @@ addButton.addEventListener("click", (e) => {
   dialog.showModal();
 });
 
-addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
-addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
-addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
-addBookToLibrary("Omniscient Reader's Viewpoint", "Sing Shong", 500, true);
-addBookToLibrary("Lookism", "Taejun Pak", 300, false);
-addBookToLibrary("Lookism", "Taejun Pak", 300, false);
-addBookToLibrary("Lookism", "Taejun Pak", 300, false);
-addBookToLibrary("Lookism", "Taejun Pak", 300, false);
-addBookToLibrary("Lookism", "Taejun Pak", 300, false);
+const submitButton = document.querySelector("#submit");
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  const title = document.querySelector("#title");
+  const author = document.querySelector("#author");
+  const pages = document.querySelector("#pages");
+  const read = document.querySelector("form input[type='radio']:checked");
 
-displayBooks();
+  addBookToLibrary(title.value, author.value, pages.value, read.value);
+  displayBooks();
+
+  dialog.close();
+});
