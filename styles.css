@@ -1,0 +1,12 @@
+* {
+    color: #cdd6f4;
+    background-color: #1e1e2e;
+    box-sizing: border-box;
+}
+
+#header {
+    border-bottom: 1px solid #cdd6f4;
+    font-size: 3rem;
+    padding: 10px;
+    text-align: center;
+}
