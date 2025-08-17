@@ -1,5 +1,7 @@
 const myLibrary = [];
 const content = document.querySelector("#content");
+const addBookButton = document.querySelector("#add-book");
+const dialog = document.querySelector("dialog");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -36,6 +38,10 @@ function displayBook() {
     content.append(card);
   });
 }
+
+addBookButton.addEventListener("click", (e) => {
+  dialog.showModal();
+});
 
 addBookToLibrary("asdsdf", "sadfsdf", 5, true);
 addBookToLibrary("asdsdf", "sadfsdf", 5, true);

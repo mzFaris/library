@@ -23,3 +23,13 @@
     grid-auto-rows: 300px;
     gap: 10px;
 }
+
+#add-book {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
