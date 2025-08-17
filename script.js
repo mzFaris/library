@@ -17,6 +17,7 @@ function addBookToLibrary(title, author, pages, read) {
 function displayBook() {
   myLibrary.forEach((book) => {
     const card = document.createElement("div");
+    card.classList.add("card");
 
     const title = document.createElement("p");
     const author = document.createElement("p");
@@ -36,6 +37,7 @@ function displayBook() {
   });
 }
 
+addBookToLibrary("asdsdf", "sadfsdf", 5, true);
 addBookToLibrary("asdsdf", "sadfsdf", 5, true);
 addBookToLibrary("asdsdf", "sadfsdf", 5, true);
 addBookToLibrary("asdsdf", "sadfsdf", 5, true);
