@@ -33,3 +33,13 @@
     width: 3rem;
     border-radius: 50%;
 }
+
+form > p {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+form button {
+    margin-top: 0.5rem;
+}

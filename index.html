@@ -10,21 +10,33 @@
     <body>
         <div id="header">Library</div>
         <div id="content"></div>
-        <button type="button" id="add-book"">+</button>
+        <button type="button" id="add-book">+</button>
         <dialog>
             <form action="">
                 <p>
                     <label for="title">Title:</label
-                    ><input type="text" id="title" />
+                    ><input type="text" id="title" required />
                 </p>
                 <p>
                     <label for="author">Author: </label
-                    ><input type="text" id="author" />
+                    ><input type="text" id="author" required />
                 </p>
                 <p>
                     <label for="pages">Pages</label
-                    ><input type="number" id="pages" />
+                    ><input type="number" id="pages" required />
                 </p>
+                <fieldset>
+                    <legend>Read?</legend>
+                    <p>
+                        <label for="choice1">Yes</label
+                        ><input type="radio" value="true" checked />
+                    </p>
+                    <p>
+                        <label for="choice2">No</label
+                        ><input type="radio" value="false" />
+                    </p>
+                </fieldset>
+                <button id="submit" type="submit">Submit</button>
             </form>
         </dialog>
     </body>
