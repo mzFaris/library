@@ -13,6 +13,14 @@ function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
 }
 
+Book.prototype.toggleRead = function () {
+  if (this.read === "true") {
+    this.read = "false";
+  } else {
+    this.read = "true";
+  }
+};
+
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
@@ -37,16 +45,22 @@ function createCard(book) {
   const pages = document.createElement("p");
   const read = document.createElement("p");
   const deleteButton = document.createElement("button");
+  const toggleReadButton = document.createElement("button");
 
   title.textContent = `Title: ${book.title}`;
   author.textContent = `Author: ${book.author}`;
   pages.textContent = `Pages: ${book.pages}`;
   read.textContent = `Read: ${book.read}`;
   deleteButton.textContent = "Delete";
+  toggleReadButton.textContent = "Toggle";
 
   deleteButton.addEventListener("click", (e) => deleteCard(book.id));
+  toggleReadButton.addEventListener("click", (e) => {
+    book.toggleRead();
+    displayBook();
+  });
 
-  card.append(title, author, pages, read, deleteButton);
+  card.append(title, author, pages, read, deleteButton, toggleReadButton);
 
   content.append(card);
 }
@@ -82,10 +96,7 @@ submitButton.addEventListener("click", (e) => {
   displayBook();
 });
 
-addBookToLibrary("asdsdf", "sadfsdf", 5, true);
-addBookToLibrary("asdsdf", "sadfsdf", 5, true);
-addBookToLibrary("asdsdf", "sadfsdf", 5, true);
-addBookToLibrary("asdsdf", "sadfsdf", 5, true);
-addBookToLibrary("asdsdf", "sadfsdf", 5, true);
+addBookToLibrary("asdsdf", "sadfsdf", 5, "true");
+addBookToLibrary("asdsdf", "sadfsdf", 5, "true");
 
 displayBook();
