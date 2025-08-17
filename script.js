@@ -30,20 +30,23 @@ function fetchDataFromForm() {
 function createCard(book) {
   const card = document.createElement("div");
   card.classList.add("card");
+  card.setAttribute("data-id", book.id);
 
   const title = document.createElement("p");
   const author = document.createElement("p");
   const pages = document.createElement("p");
   const read = document.createElement("p");
-  const id = document.createElement("p");
+  const deleteButton = document.createElement("button");
 
   title.textContent = `Title: ${book.title}`;
   author.textContent = `Author: ${book.author}`;
   pages.textContent = `Pages: ${book.pages}`;
   read.textContent = `Read: ${book.read}`;
-  id.textContent = `Id: ${book.id}`;
+  deleteButton.textContent = "Delete";
 
-  card.append(title, author, pages, read, id);
+  deleteButton.addEventListener("click", (e) => deleteCard(book.id));
+
+  card.append(title, author, pages, read, deleteButton);
 
   content.append(card);
 }
@@ -56,6 +59,16 @@ function displayBook() {
   myLibrary.forEach((book) => {
     createCard(book);
   });
+}
+
+function deleteCard(id) {
+  const card = document.querySelector(`[data-id="${id}"]`);
+  content.removeChild(card);
+
+  myLibrary.splice(
+    myLibrary.findIndex((book) => book.id === id),
+    1,
+  );
 }
 
 addBookButton.addEventListener("click", (e) => {
