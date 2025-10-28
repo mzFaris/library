@@ -5,21 +5,23 @@ const dialog = document.querySelector("dialog");
 const submitButton = document.querySelector("#submit");
 const form = document.querySelector("form");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
-}
-
-Book.prototype.toggleRead = function () {
-  if (this.read === "true") {
-    this.read = "false";
-  } else {
-    this.read = "true";
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
   }
-};
+
+  toggleRead() {
+    if (this.read === "true") {
+      this.read = "false";
+    } else {
+      this.read = "true";
+    }
+  }
+}
 
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
